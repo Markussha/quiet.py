@@ -35,8 +35,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$SYSROOT/usr" -DJANSSON
 
 mkdir -p "$BUILDPATH/libquiet"
 cd "$BUILDPATH/libquiet"
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="-fPIC" -DCMAKE_INSTALL_PREFIX="$SYSROOT/usr" -DCMAKE_PREFIX_PATH="$SYSROOT" "$SRCPATH/libquiet" && make
-CTEST_OUTPUT_ON_FAILURE=1 make check
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="-fPIC" -DCMAKE_INSTALL_PREFIX="$SYSROOT/usr" -DCMAKE_PREFIX_PATH="$SYSROOT" "$SRCPATH/libquiet" && make quiet quiet-profiles || true
 make install
 
 mkdir -p "$LIBPATH"
